@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width:300px;
+            height:300px;
+            margin:50px;
+            background:aqua;
+            transition:0.5s;
+        }
+    </style>
+</head>
+<body>
+    <a href="#" class="btnLeft">Rotate to the LEFT</a>
+    <a href="#" class="btnRight">Rotate to the RIGHT</a>
+
+    <div id="box"></div>
+</body>
+<script>
+    const btnLeft=document.querySelector(".btnLeft");
+    const btnRight=document.querySelector(".btnRight");
+    const box=document.querySelector("#box");
+    const deg=45;
+
+    let num = 0;
+
+    btnLeft.addEventListener("click", e=>{
+        e.preventDefault();
+        num--;
+        box.style.transform = 'rotate(${num * deg}deg)';
+    });
+
+    btnRight.addEventListener("click", e=>{
+        e.preventDefault();
+        num++;
+        box.style.transform='rotate(${num * deg}deg)';
+    })
+</script>
+</html>

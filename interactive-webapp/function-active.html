@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @charset "utf-8";
+
+/* 버튼 비활성화 일때 */
+ul li {
+  color: gray;
+}
+/* 버튼 활성화 일떄 */
+ul li.on {
+  color: black;
+  cursor: pointer;
+}
+section {
+  width: 300px;
+  height: 200px;
+  border: 1px solid #888;
+  margin: 50px;
+  position: relative;
+  perspective: 600px; /*원근감 설정*/
+}
+/*박스 비활성화 일때*/
+section article {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 50px;
+  opacity: 0;
+  transform: rotateY(-180deg);
+  transition: 0.5s;
+}
+/*박스 활성화 일때 */
+section article.on {
+  opacity: 1;
+  transform: rotateY(0deg);
+}
+/* 박스 순서별로 배경색 지정 */
+section article:nth-of-type(1) {
+  background: aqua;
+}
+section article:nth-of-type(2) {
+  background: hotpink;
+}
+section article:nth-of-type(3) {
+  background: orange;
+}
+    </style>
+</head>
+<body>
+    <ul class="btns">
+        <li class="on">button1</li>
+        <li>button2</li>
+        <li>button3</li>
+    </ul>
+  
+    <section>
+        <article class="on">BOX1</article>
+        <article>BOX2</article>
+        <article>BOX3</article>
+    </section>
+</body>
+
+<script>
+   const btns = document.querySelectorAll(".btns li");
+const boxs = document.querySelectorAll("section article");
+
+//버튼의 개수만큼 반복을 돌며 클릭 이벤트 연결
+for(let i=0; btns.length; i++){
+
+    //각 버튼을 클릭할 때마다
+    btns[i].addEventListener("click", e=>{
+        //각각 인수를 순서값과 버튼, 박스그룹을 넣어서
+        //activation함수 호출
+        activation(i, btns);
+        activation(i, boxs);
+    })
+}
+
+//첫 번째 인수로 순서값, 두번째 인수로 그룹을 전달받아
+function activation(index, list){
+    //인수로 받은 요소의 그룹의 갯수만큼 반복을 돌며 비활성화
+    for(let el of list){
+        el.classList.remove("on");
+    }
+    //첫번째 인수로 받은 순서에 해당하는 그룹의 요소만 찾아서 활성화
+    list[index].classList.add("on");
+}
+</script>
+</html>

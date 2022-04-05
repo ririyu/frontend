@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="#" class="btnPlus">PLUS</a>
+    <a href="#" class="btnMinus">MINUS</a>
+</body>
+<script>
+    const btnPlus = document.querySelector(".btnPlus");
+    const btnMinus = document.querySelector(".btnMinus");
+
+    let num=0;
+
+    btnPlus.addEventListener("click", e=>{
+        e.preventDefault();
+
+        num++;
+        console.log(num);
+    });
+
+    btnMinus.addEventListener("click", e=>{
+        e.preventDefault();
+
+        num--;
+        console.log(num);
+    });
+</script>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    const ver = navigator.userAgent;
+    console.log(ver);
+
+    const isIE = /trident/i.test(ver);
+    console.log(isIE);
+
+   //  /trident/는 IE브라우저 식별자. i는 대소문자 구분 없이 찾아내겠다는 뜻. ver을 test로 검색하여 isIE true일경우 alert.
+
+    if(isIE){
+    alert("익스플로러 브라우저로 접속하셨네요. 이 웹 페이지는 익스플로러를 지원하지 않습니다. 다른 브라우저로 접속해 주세요.");
+}
+</script>
+</html>
